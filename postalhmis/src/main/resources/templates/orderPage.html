@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Orders</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <script crossorigin="anonymous"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            th:src="@{/js/bootstrap.min.js}"></script>
+</head>
+<body>
+    <a th:href="@{/createOrder}" class="btn btn-sm btn-info"
+       style="float: right;
+       margin-right: 30px;
+       margin-top: 60px;
+       background: blue;">Create New Order</a>
+
+    <h1 class="text-center">ORDER DASHBOARD</h1>
+     <table class="table table-striped">
+         <thead>
+         <tr>
+             <th scope="col">S.No.</th>
+             <th scope="col">Sender</th>
+             <th scope="col">Sender's Address</th>
+             <th scope="col">Receiver</th>
+             <th scope="col">Receiver's Address</th>
+             <th scope="col">Status</th>
+
+         </tr>
+         </thead>
+         <tbody>
+         <h1 th:text="${sheetal}">1234</h1>
+         <tr th:each="v: ${orders}">
+             <th scope="row" th:text="${vStat.count}">1</th>
+             <td th:text="${v.sender}">Mark</td>
+             <td th:text="${v.senderAddress}">Otto</td>
+             <td th:text="${v.receiver}">@mdo</td>
+             <td th:text="${v.receiverAddress}">Otto</td>
+             <td th:text="${v.status}">@mdo</td>
+             <td><a th:href="@{/orders(deleteId=${v.id})}" class="btn btn-sm btn-danger">Delete</a> |
+                 <a th:href="@{/editOrder(id=${v.id})}" class="btn btn-sm btn-info">Edit</a>
+             </td>
+         </tr>
+
+         </tbody>
+     </table>
+
+</body>
+</html>

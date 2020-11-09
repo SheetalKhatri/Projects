@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Order</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+<form method="post" th:action="@{/createOrder}" modelAttribute="order" >
+    <h1 class="text-center text-capitalize">Create Order Dashboard</h1>
+    <div class="container">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="name">Sender</label>
+                <input class="form-control" id="senderName" name="sender" type="text">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputAddress">Sender's Address</label>
+                <input class="form-control" id="senderAddress" placeholder="1234 Main St" type="text" name="senderAddress">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="name">Receiver</label>
+                <input class="form-control" id="name" name="receiver" type="text">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputAddress">Receiver's Address</label>
+                <input class="form-control" id="inputAddress" placeholder="1234 Main St" type="text" name="receiverAddress">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">Status<select name="status" class="form-control">
+                <!--                <option th:each="status:${T(com.prestige.postalhmis.enums.Status).values()}" th:text="${status}"-->
+                <option th:each="s:${status}"
+                        th:text="${s}"
+                        th:value="${s}"></option>
+            </select>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="Submit">Create</button>
+    </div>
+</form>
+</body>
+</html>

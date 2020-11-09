@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" xmlns:th="https://www.thymeleaf.org">
+    <title>Cure</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+    <h1 class="text-center text-capitalize">Cure Dashboard</h1>
+
+    <div class="row">
+        <div class="col-sm-6">choose Patients :</div>
+        <div class="col-sm-6"><select class="form-control">
+        </select>
+            <option> choose patient</option>
+            <option th:each="user:${users}" th:value="user.id" th:text="${user.name}">choose patient</option>
+        </div>
+    </div>
+</body>
+</html>

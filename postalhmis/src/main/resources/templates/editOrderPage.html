@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <script crossorigin="anonymous"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            th:src="@{/js/bootstrap.min.js}"></script>
+    <title>Edit Order</title>
+</head>
+<body>
+You can edit here.
+<form method="post" th:action="@{/editOrder}" modelAttribute="order">
+        <h1 class="text-center text-capitalize">Edit Order Dashboard</h1>
+    <div class="container">
+        <input type="hidden" name="id" th:value="${param.id}">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="name">Sender</label>
+                <input class="form-control" id="senderName" name="sender" type="text" th:value="${order.sender}">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputAddress">Sender's Address</label>
+                <input class="form-control" id="senderAddress" placeholder="1234 Main St" type="text" name="senderAddress" th:value="${order.senderAddress}">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="name">Receiver</label>
+                <input class="form-control" id="name" name="receiver" type="text" th:value="${order.receiver}">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputAddress">Receiver's Address</label>
+                <input class="form-control" id="inputAddress" placeholder="1234 Main St" type="text" name="receiverAddress" th:value="${order.receiverAddress}">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">Status<select name="status" class="form-control" th:value="${order.status}">
+<!--                <option th:each="status:${T(com.prestige.postalhmis.enums.Status).values()}" th:text="${status}"-->
+                <option th:each="s:${status}"
+                th:text="${s}"
+                th:value="${s}"></option>
+            </select>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="Submit">Update</button>
+    </div>
+</form>
+</body>
+</html>

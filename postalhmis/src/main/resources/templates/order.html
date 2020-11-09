@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" >
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <title>Order</title>
+</head>
+<body>
+<h1 class="text-center">ORDER DETAILS</h1>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">S.No.</th>
+        <th scope="col">Sender</th>
+        <th scope="col">Sender's Address</th>
+        <th scope="col">Receiver</th>
+        <th scope="col">Receiver's Address</th>
+        <th scope="col">Status</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <h1 th:text="${sheetal}">1234</h1>
+    <tr th:each="v: ${order}">
+        <th scope="row" th:text="${vStat.count}">1</th>
+        <td th:text="${v.sender}">Mark</td>
+        <td th:text="${v.senderAddress}">Otto</td>
+        <td th:text="${v.receiver}">@mdo</td>
+        <td th:text="${v.receiverAddress}">Otto</td>
+        <td th:text="${v.status}">@mdo</td>
+
+    </tr>
+
+    </tbody>
+</table>
+</body>
+</html>
